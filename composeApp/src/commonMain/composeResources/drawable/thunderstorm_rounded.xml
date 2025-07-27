@@ -1,0 +1,29 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ /*
+  ~  * Weather
+  ~  * Copyright (C) 2025 IconsNotFound
+  ~  *
+  ~  * This program is free software: you can redistribute it and/or modify
+  ~  * it under the terms of the GNU Affero General Public License as
+  ~  * published by the Free Software Foundation, either version 3 of the
+  ~  * License, or (at your option) any later version.
+  ~  *
+  ~  * This program is distributed in the hope that it will be useful,
+  ~  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  * GNU Affero General Public License for more details.
+  ~  *
+  ~  * You should have received a copy of the GNU Affero General Public License
+  ~  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~  */
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="960"
+    android:viewportHeight="960">
+  <path
+      android:pathData="M327,920q-10,0 -15.5,-8T309,895l27,-75h-62q-5,0 -8,-4t-1,-9l38,-107q3,-9 10.5,-14.5T331,680h49q11,0 17,9t1,19l-31,72h62q6,0 9,5.5t-1,10.5L346,913q-3,4 -7,5.5T327,920ZM597,880q-10,0 -15.5,-8t-2.5,-17l19,-55h-64q-5,0 -8,-4t-1,-9l31,-87q3,-9 10.5,-14.5T584,680h48q11,0 17.5,9t1.5,19l-23,52h61q6,0 8.5,5.5T696,776l-80,97q-1,1 -19,7ZM300,640q-91,0 -155.5,-64.5T80,420q0,-83 55,-145t136,-73q32,-57 87.5,-89.5T480,80q90,0 156.5,57.5T717,281q69,6 116,57t47,122q0,75 -52.5,127.5T700,640L300,640Z"
+      android:fillColor="#e3e3e3"/>
+</vector>

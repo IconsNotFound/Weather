@@ -1,0 +1,178 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ /*
+  ~  * Weather
+  ~  * Copyright (C) 2025 IconsNotFound
+  ~  *
+  ~  * This program is free software: you can redistribute it and/or modify
+  ~  * it under the terms of the GNU Affero General Public License as
+  ~  * published by the Free Software Foundation, either version 3 of the
+  ~  * License, or (at your option) any later version.
+  ~  *
+  ~  * This program is distributed in the hope that it will be useful,
+  ~  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  * GNU Affero General Public License for more details.
+  ~  *
+  ~  * You should have received a copy of the GNU Affero General Public License
+  ~  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~  */
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="app_version">1.0.1</string>
+    <string name="brand_name">IconsNotFound</string>
+    <string name="app_contact">https://github.com/IconsNotFound/Weather</string>
+    <string name="url_privacy_policy">https://github.com/IconsNotFound/Weather/blob/main/PRIVACY.md</string>
+    <string name="url_patreon">https://www.patreon.com/IconsNotFound</string>
+    <string name="url_github">https://github.com/IconsNotFound/</string>
+    <string name="url_youtube">https://www.youtube.com/@iconsnotfound</string>
+    <string name="url_openstreetmap">https://www.openstreetmap.org/copyright</string>
+    <string name="url_photon_komoot">https://photon.komoot.io</string>
+    <string name="url_open_meteo_forecast">https://api.open-meteo.com/v1/forecast</string>
+    <string name="url_open_meteo_license">https://open-meteo.com/en/license</string>
+    <string name="url_freepik">https://www.freepik.com/</string>
+    <string name="url_svg_repo_cc0">https://www.svgrepo.com/page/licensing/#CC0</string>
+    <string name="weather_provider">Weather data provided by &lt;b&gt;Open-Meteo&lt;/b&gt;</string>
+    <string name="weather_provider_terms">See [Terms and Privacy](https://open-meteo.com/en/terms) for details</string>
+    <string name="search_provider">Search powered by [Photon (Komoot)](https://photon.komoot.io)</string>
+    <string name="search_provider_ext">Using [OpenStreetMap](https://osmfoundation.org/wiki/Privacy_Policy) data</string>
+    <string name="no_saved_places">No saved places</string>
+    <string name="add_place">Add place</string>
+    <string name="percent_symbol">%</string>
+    <string name="start_icon">Start icon</string>
+    <string name="end_icon">End icon</string>
+    <string name="comma_space">, </string>
+    <string name="delete">Delete</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="_0">0</string>
+    <string name="_06_00">06:00</string>
+    <string name="hyphen">-</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
+    <string name="last_updated">Last updated:</string>
+    <string name="weather_desc_clear_sky">Clear sky</string>
+    <string name="weather_desc_mainly_clear">Mainly clear</string>
+    <string name="weather_desc_partly_cloudy">Partly cloudy</string>
+    <string name="weather_desc_overcast">Overcast</string>
+    <string name="weather_desc_fog">Fog</string>
+    <string name="weather_desc_depositing_rime_fog">Depositing rime fog</string>
+    <string name="weather_desc_light_drizzle">Light drizzle</string>
+    <string name="weather_desc_moderate_drizzle">Moderate drizzle</string>
+    <string name="weather_desc_dense_drizzle">Dense drizzle</string>
+    <string name="weather_desc_light_freezing_drizzle">Light freezing drizzle</string>
+    <string name="weather_desc_dense_freezing_drizzle">Dense freezing drizzle</string>
+    <string name="weather_desc_slight_rain">Slight rain</string>
+    <string name="weather_desc_moderate_rain">Moderate rain</string>
+    <string name="weather_desc_heavy_rain">Heavy rain</string>
+    <string name="weather_desc_light_freezing_rain">Light freezing rain</string>
+    <string name="weather_desc_heavy_freezing_rain">Heavy freezing rain</string>
+    <string name="weather_desc_slight_snow_fall">Slight snow fall</string>
+    <string name="weather_desc_moderate_snow_fall">Moderate snow fall</string>
+    <string name="weather_desc_heavy_snow_fall">Heavy snow fall</string>
+    <string name="weather_desc_snow_grains">Snow grains</string>
+    <string name="weather_desc_slight_rain_showers">Slight rain showers</string>
+    <string name="weather_desc_moderate_rain_showers">Moderate rain showers</string>
+    <string name="weather_desc_violent_rain_showers">Violent rain showers</string>
+    <string name="weather_desc_slight_snow_showers">Slight snow showers</string>
+    <string name="weather_desc_heavy_snow_showers">Heavy snow showers</string>
+    <string name="weather_desc_thunderstorm_no_hail">Thunderstorm (no hail)</string>
+    <string name="weather_desc_thunderstorm_light_hail">Thunderstorm (light hail)</string>
+    <string name="weather_desc_thunderstorm_heavy_hail">Thunderstorm (heavy hail)</string>
+    <string name="weather_desc_unknown">Unknown weather</string>
+    <string name="cloud_interpret_clear">Clear</string>
+    <string name="cloud_interpret_mostly_clear">Mostly clear</string>
+    <string name="cloud_interpret_partly_cloudy">Partly cloudy</string>
+    <string name="cloud_interpret_mostly_cloudy">Mostly cloudy</string>
+    <string name="cloud_interpret_overcast">Overcast</string>
+    <string name="cloud_interpret_unknown">Unknown</string>
+    <string name="dew_point_desc_dry">Dry</string>
+    <string name="dew_point_desc_comfortable">Comfortable</string>
+    <string name="dew_point_desc_slightly_humid">Slightly humid</string>
+    <string name="dew_point_desc_humid">Humid</string>
+    <string name="dew_point_desc_very_humid">Very Humid</string>
+    <string name="direction_north">North</string>
+    <string name="direction_north_northeast">North-Northeast</string>
+    <string name="direction_northeast">Northeast</string>
+    <string name="direction_east_northeast">East-Northeast</string>
+    <string name="direction_east">East</string>
+    <string name="direction_east_southeast">East-Southeast</string>
+    <string name="direction_southeast">Southeast</string>
+    <string name="direction_south_southeast">South-Southeast</string>
+    <string name="direction_south">South</string>
+    <string name="direction_south_southwest">South-Southwest</string>
+    <string name="direction_southwest">Southwest</string>
+    <string name="direction_west_southwest">West-Southwest</string>
+    <string name="direction_west">West</string>
+    <string name="direction_west_northwest">West-Northwest</string>
+    <string name="direction_northwest">Northwest</string>
+    <string name="direction_north_northwest">North-Northwest</string>
+    <string name="precipitation_desc_no_rain">No rain</string>
+    <string name="precipitation_desc_very_light_rain">Very light rain</string>
+    <string name="precipitation_desc_light_rain">Light rain</string>
+    <string name="precipitation_desc_moderate_rain">Moderate rain</string>
+    <string name="precipitation_desc_heavy_rain">Heavy rain</string>
+    <string name="precipitation_desc_very_heavy_rain">Very heavy rain</string>
+    <string name="precipitation_desc_extreme_rain">Extreme rain</string>
+    <string name="uv_desc_low">Low</string>
+    <string name="uv_desc_moderate">Moderate</string>
+    <string name="uv_desc_high">High</string>
+    <string name="uv_desc_very_high">Very high</string>
+    <string name="uv_desc_extreme">Extreme</string>
+    <string name="visibility_desc_excellent">Excellent</string>
+    <string name="visibility_desc_good">Good</string>
+    <string name="visibility_desc_moderate">Moderate</string>
+    <string name="visibility_desc_poor">Poor</string>
+    <string name="visibility_desc_very_poor">Very poor</string>
+    <string name="no_default_place_set">No default place set</string>
+    <string name="select_a_place">Select a place</string>
+    <string name="cloud_cover">Cloud cover</string>
+    <string name="distance_visibility">Distance visibility</string>
+    <string name="km">km</string>
+    <string name="dew_point">Dew point</string>
+    <string name="humidity">Humidity</string>
+    <string name="degree">°</string>
+    <string name="feels_like">Feels like</string>
+    <string name="precipitation">Precipitation</string>
+    <string name="air_pressure">Air pressure</string>
+    <string name="hpa">hPa</string>
+    <string name="mm">mm</string>
+    <string name="places">Places</string>
+    <string name="uv_index">UV index</string>
+    <string name="solar_radiation">Solar radiation</string>
+    <string name="w_per_m_2">W/m²</string>
+    <string name="wind">Wind</string>
+    <string name="speed_colon">Speed:</string>
+    <string name="km_per_h">km/h</string>
+    <string name="gust_colon">Gust:</string>
+    <string name="direction_colon">Direction:</string>
+    <string name="close">Close</string>
+    <string name="licences">Licences</string>
+    <string name="place_already_saved">This place is already saved</string>
+    <string name="search_a_place">Search for a place</string>
+    <string name="search_is_slower">Search is slower than usual due to high activity</string>
+    <string name="search_failed">Can’t connect to the server</string>
+    <string name="server_network_unreachable">Please check your internet connection or try again later</string>
+    <string name="no_results_found">No results found</string>
+    <string name="add_a_place">Add a place</string>
+    <string name="settings">Settings</string>
+    <string name="theme">Theme</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="app_info">App Info</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_ext">No personal data; uses Photon &amp; Open-Meteo</string>
+    <string name="licences_ext">Licensed under GNU GPLv3; uses MIT, Apache, Freepik</string>
+    <string name="donate">Donate</string>
+    <string name="donate_ext">Support me on Patreon</string>
+    <string name="from">from</string>
+    <string name="place_added">Place added</string>
+    <string name="place_deleted">Place deleted</string>
+    <string name="weather_updated">Weather updated</string>
+    <string name="default_place_updated">Default place updated</string>
+    <string name="clear_text">Clear text</string>
+    <string name="saved_places_limit_reached">Saved places limit reached. Maximum allowed:</string>
+</resources>
