@@ -12,3 +12,11 @@
 | Android | Linux (.deb) | Windows | iOS/macOS |  
 |---------|-------------|---------|----------|  
 | ✅       | ✅           | 🚧 Soon  | ⌛ Future | 
+
+## 🌐 Web Version
+Access the web app instantly:  
+[![Open Web Version](https://img.shields.io/badge/🌐_Web_Version-Live_Now-green?style=for-the-badge)](https://weather.iconsnotfound.com/)
+
+- Same features as desktop/mobile
+- No installation required
+- PWA support (installable)  

@@ -165,7 +165,7 @@ compose.desktop {
     application {
         mainClass = "com.iconsnotfound.weather.MainKt"
 
-        nativeDistributions {
+        /*nativeDistributions {
             // Target formats (DEB for Linux)
             targetFormats(TargetFormat.Deb, TargetFormat.Exe)
             packageName = "Weather"
@@ -179,6 +179,35 @@ compose.desktop {
                 iconFile.set(project.file("src/commonMain/composeResources/drawable/weather_app_logo.png"))  // 512x512 PNG
                 appCategory = "Utility"
                 debMaintainer = "https://github.com/IconsNotFound/Weather/"
+            }
+        }*/
+
+        nativeDistributions {
+            targetFormats(TargetFormat.Deb, TargetFormat.Exe) // Keep both formats
+            packageName = "weather"
+            packageVersion = "1.0.1"
+
+            description = "A minimal, privacy-focused weather app for casual users. No tracking — just the weather for your saved places."
+            vendor = "IconsNotFound"
+            copyright = "© 2025 IconsNotFound. AGPL-3.0 License"
+            licenseFile.set(project.file("../LICENSE"))
+
+            // Linux-specific refinements
+            linux {
+                iconFile.set(project.file("src/commonMain/composeResources/drawable/weather_app_logo.png"))
+                appCategory = "Utility"
+                debMaintainer = "IconsNotFound (https://github.com/iconsnotfound)" // Recommended format
+                appRelease = "1"
+
+                // Menu entry settings
+                menuGroup = "Weather"
+                shortcut = true
+            }
+
+            // Windows defaults (pre-configured for future builds)
+            windows {
+                menuGroup = "Weather"
+                upgradeUuid = "YOUR-UUID-HERE" // Generate via `uuidgen`
             }
         }
     }
