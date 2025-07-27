@@ -1,0 +1,116 @@
+# ========== Kotlin Multiplatform ==========
+
+.gradle/
+build/
+.idea/
+local.properties
+.DS_Store
+
+# ========== OS Specific ==========
+
+# macOS
+*.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ========== IntelliJ / Android Studio ==========
+
+*.iml
+*.ipr
+*.iws
+
+# ========== Android ==========
+
+/android/.gradle
+/android/build/
+/android/app/build/
+/android/local.properties
+/android/captures/
+/android/.idea/
+
+# Keystore files (if any)
+*.jks
+*.keystore
+
+# ========== iOS ==========
+
+/ios/Pods/
+/ios/Podfile.lock
+/ios/Podfile.local
+/ios/build/
+/ios/DerivedData/
+/ios/.gradle/
+/ios/.idea/
+/ios/.DS_Store
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/xcuserdata
+*.xcodeproj/xcuserdata
+
+# Kotlin/Native iOS build artifacts
+/build/bin/ios*/debugExecutable/
+/build/bin/ios*/releaseExecutable/
+
+# ========== Web ==========
+
+/web/build/
+/web/node_modules/
+/web/.gradle/
+
+# ========== Desktop ==========
+
+/desktop/build/
+/desktop/.gradle/
+
+# ========== KMP Shared ==========
+
+/shared/build/
+/shared/.gradle/
+
+# ========== Misc ==========
+
+*.log
+*.lock
+*.tmp
+*.swp
+*.bak
+*.orig
+*.rej
+
+# Kotlin compilation cache
+/.kotlin/
+/.kotlinc/
+
+# Local run config files
+.idea/runConfigurations/
+
+# ========== VS Code ==========
+
+.vscode/
+
+# ========== Environment Files ==========
+
+.env
+.env.*
+
+# ========== Release Artifacts ==========
+
+*.apk
+*.aab
+*.ipa
+*.dmg
+*.exe
+*.msi
+*.app
+*.zip
+*.tar.gz
+*.wasm
+*.js.map
+#*.js
+#*.html
+
+
+/release/
+/dist/
