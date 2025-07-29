@@ -114,3 +114,5 @@ Desktop.ini
 
 /release/
 /dist/
+
+/composeApp/release/*
