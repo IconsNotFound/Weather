@@ -110,7 +110,7 @@ Desktop.ini
 *.js.map
 #*.js
 #*.html
-.dm
+*.dm
 
 /release/
 /dist/
