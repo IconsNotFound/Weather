@@ -165,25 +165,8 @@ compose.desktop {
     application {
         mainClass = "com.iconsnotfound.weather.MainKt"
 
-        /*nativeDistributions {
-            // Target formats (DEB for Linux)
-            targetFormats(TargetFormat.Deb, TargetFormat.Exe)
-            packageName = "Weather"
-            packageVersion = "1.0.1"
-            description = "A minimal weather app"
-            vendor = "IconsNotFound"
-            copyright = "© 2025 IconsNotFound. All rights reserved."
-            licenseFile.set(project.file("../LICENSE"))  // Path to your license file
-            // Linux-specific settings
-            linux {
-                iconFile.set(project.file("src/commonMain/composeResources/drawable/weather_app_logo.png"))  // 512x512 PNG
-                appCategory = "Utility"
-                debMaintainer = "https://github.com/IconsNotFound/Weather/"
-            }
-        }*/
-
         nativeDistributions {
-            targetFormats(TargetFormat.Deb, TargetFormat.Exe) // Keep both formats
+            targetFormats(TargetFormat.Deb, TargetFormat.Exe, TargetFormat.AppImage)
             packageName = "weather"
             packageVersion = "1.0.1"
 
@@ -192,22 +175,20 @@ compose.desktop {
             copyright = "© 2025 IconsNotFound. AGPL-3.0 License"
             licenseFile.set(project.file("../LICENSE"))
 
-            // Linux-specific refinements
             linux {
                 iconFile.set(project.file("src/commonMain/composeResources/drawable/weather_app_logo.png"))
                 appCategory = "Utility"
-                debMaintainer = "IconsNotFound (https://github.com/iconsnotfound)" // Recommended format
+                debMaintainer = "IconsNotFound (https://github.com/iconsnotfound)"
                 appRelease = "1"
-
-                // Menu entry settings
                 menuGroup = "Weather"
                 shortcut = true
             }
 
-            // Windows defaults (pre-configured for future builds)
             windows {
+                iconFile.set(project.file("src/commonMain/composeResources/drawable/weather_app_logo_ico.ico"))
                 menuGroup = "Weather"
-                upgradeUuid = "YOUR-UUID-HERE" // Generate via `uuidgen`
+                shortcut = true
+                upgradeUuid = "a369853e-5643-4918-a37b-ee138c166194"
             }
         }
     }

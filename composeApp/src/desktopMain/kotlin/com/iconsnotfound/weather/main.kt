@@ -31,7 +31,7 @@ import weather.composeapp.generated.resources.allStringResources
 
 fun main() = application {
     val appNameRes = (Res.allStringResources["app_name"])
-    val a = Res.allDrawableResources["weather_app_logo.png"]
+    val a = Res.allDrawableResources["weather_app_logo"]
     val p: Painter? = if(a != null) painterResource(a) else null
     Window(
         onCloseRequest = ::exitApplication,
