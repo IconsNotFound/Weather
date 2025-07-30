@@ -14,7 +14,7 @@
 ### Supported Platforms
 | Android | Linux (.deb) | Windows | iOS/macOS |  
 |---------|-------------|---------|----------|  
-| ✅       | ✅           | 🚧 Soon  | ⌛ Future | 
+| ✅       | ✅           | ✅       | ⌛ Future | 
 
 ## 🌐 Web Version
 Access the web app instantly:  
