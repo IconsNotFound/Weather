@@ -165,6 +165,10 @@ compose.desktop {
     application {
         mainClass = "com.iconsnotfound.weather.MainKt"
 
+        buildTypes.release.proguard {
+            configurationFiles.from("proguard-rules.pro")
+        }
+
         nativeDistributions {
             targetFormats(TargetFormat.Deb, TargetFormat.Exe, TargetFormat.AppImage)
             packageName = "weather"
