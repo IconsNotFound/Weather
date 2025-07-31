@@ -30,6 +30,7 @@ import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -44,6 +45,7 @@ import weather.composeapp.generated.resources.places
 
 @Composable
 fun TopBar(
+    savedLocationShowing: MutableState<Boolean>,
     onLocationSearchClick: () -> Unit,
     onBack: () -> Unit
 ) {
@@ -62,11 +64,13 @@ fun TopBar(
             color = MaterialTheme.colorScheme.onSurface
         )
         Spacer(modifier = Modifier.weight(1f))
-        ButtonM3(
-            text = stringResource(Res.string.add_place),
-            onClick = { onLocationSearchClick() },
-            icon = Icons.Default.Add,
-            style = ButtonStyle.Outlined,
-        )
+        if(savedLocationShowing.value) {
+            ButtonM3(
+                text = stringResource(Res.string.add_place),
+                onClick = { onLocationSearchClick() },
+                icon = Icons.Default.Add,
+                style = ButtonStyle.Outlined,
+            )
+        }
     }
 }

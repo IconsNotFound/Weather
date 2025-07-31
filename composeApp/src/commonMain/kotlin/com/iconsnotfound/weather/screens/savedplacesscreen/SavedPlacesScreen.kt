@@ -91,7 +91,7 @@ fun SavedPlacesScreenContent(
     var isLoading by remember { mutableStateOf(false) }
     val defaultLocation = remember { mutableStateOf<Places?>(null) }
     var totalSavedLocations by remember { mutableStateOf(0) }
-    var showSections by remember { mutableStateOf(true) }
+    var showSections = remember { mutableStateOf(true) }
 
     LaunchedEffect(Unit) {
         delay(200)
@@ -99,7 +99,7 @@ fun SavedPlacesScreenContent(
         totalSavedLocations = AppDataStore.getTotalSavedPlaces(settings)
         if(totalSavedLocations == 0) {
             isLoading = false
-            showSections = false
+            showSections.value = false
             return@LaunchedEffect
         }
         defaultLocation.value = AppDataStore.getDefaultPlace(settings)
@@ -119,14 +119,14 @@ fun SavedPlacesScreenContent(
     Column(
         modifier = Modifier.padding(vertical = 4.dp)
     ) {
-        TopBar(onLocationSearchClick, onBack)
+        TopBar(showSections, onLocationSearchClick, onBack)
         if (isLoading) {
             LinearProgressIndicator(
                 modifier = Modifier.fillMaxWidth()
             )
         }
 
-        if(showSections) {
+        if(showSections.value) {
             LazyColumn(
                 state = listState,
                 modifier = Modifier
@@ -151,7 +151,7 @@ fun SavedPlacesScreenContent(
                                             AppDataStore.clearDefaultPlace(settings)
                                         }
                                         totalSavedLocations = AppDataStore.getTotalSavedPlaces(settings)
-                                        showSections = totalSavedLocations != 0
+                                        showSections.value = totalSavedLocations != 0
                                     },
                                 )
                             },

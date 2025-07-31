@@ -30,13 +30,18 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.iconsnotfound.weather.SettingsHolder.settings
 import com.iconsnotfound.weather.components.ButtonM3
 import com.iconsnotfound.weather.components.ButtonStyle
 import com.iconsnotfound.weather.components.IconButtonM3
 import com.iconsnotfound.weather.components.IconButtonStyle
 import com.iconsnotfound.weather.config.AppInfo
+import com.iconsnotfound.weather.data.AppDataStore
 import com.iconsnotfound.weather.data.WeatherRepository
 import org.jetbrains.compose.resources.stringResource
 import weather.composeapp.generated.resources.Res
@@ -52,6 +57,9 @@ fun TopBar(
 ) {
     val weatherUpdated = stringResource(Res.string.weather_updated)
     val userAgentString = AppInfo.userAgent()
+    val isRefreshVisible by remember { mutableStateOf(
+        AppDataStore.getTotalSavedPlaces(settings)>0 && AppDataStore.getDefaultPlace(settings) != null
+    ) }
 
     Row(
         modifier = Modifier
@@ -59,20 +67,22 @@ fun TopBar(
             .padding(vertical = 4.dp),
         horizontalArrangement = Arrangement.End
     ) {
-        IconButtonM3(
-            onClick = {
-                isLoading.value = true
-                weatherRepository.refreshWeather(manualRefresh = true, msgSuccess = weatherUpdated, userAgentString = userAgentString)
-            },
-            icon = Icons.Default.Refresh,
-            style = IconButtonStyle.Text,
-        )
-        ButtonM3(
-            onClick = { onSavedPlacesClick() },
-            icon = Icons.Default.LocationCity,
-            style = ButtonStyle.Outlined,
-            text = stringResource(Res.string.places)
-        )
+        if(isRefreshVisible) {
+            IconButtonM3(
+                onClick = {
+                    isLoading.value = true
+                    weatherRepository.refreshWeather(manualRefresh = true, msgSuccess = weatherUpdated, userAgentString = userAgentString)
+                },
+                icon = Icons.Default.Refresh,
+                style = IconButtonStyle.Text,
+            )
+            ButtonM3(
+                onClick = { onSavedPlacesClick() },
+                icon = Icons.Default.LocationCity,
+                style = ButtonStyle.Outlined,
+                text = stringResource(Res.string.places)
+            )
+        }
         IconButtonM3(
             onClick = { onSettingsClick() },
             icon = Icons.Default.Settings,
