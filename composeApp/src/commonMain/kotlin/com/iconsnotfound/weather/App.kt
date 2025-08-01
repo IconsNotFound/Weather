@@ -22,8 +22,7 @@ package com.iconsnotfound.weather
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -61,7 +60,7 @@ fun App() {
             ClickAwayBox {
                 Column(
                     modifier = Modifier
-                        .safeContentPadding().padding(4.dp)
+                        .safeDrawingPadding()
                         .widthIn(min = 360.dp, max = 800.dp)
                         .fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,

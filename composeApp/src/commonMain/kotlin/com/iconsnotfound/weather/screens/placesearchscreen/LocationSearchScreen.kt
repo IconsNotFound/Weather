@@ -20,6 +20,8 @@
 
 package com.iconsnotfound.weather.screens.placesearchscreen
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -28,9 +30,12 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -61,6 +66,8 @@ private fun LocationSearchScreenContent(
     onBack: (Boolean) -> Unit,
     fromHomeScreen: Boolean
 ) {
+    val offsetX = remember { Animatable(-1000f) }
+    var showList by remember { mutableStateOf(false) }
     var query = remember { mutableStateOf("") }
     var results = remember { mutableStateOf<List<PlacesModels>>(emptyList()) }
     var isLoading = remember { mutableStateOf(false) }
@@ -70,6 +77,10 @@ private fun LocationSearchScreenContent(
     val listState = rememberLazyListState()
     BackHandler {
         onBack(fromHomeScreen)
+    }
+    LaunchedEffect(Unit) {
+        offsetX.animateTo(0f, animationSpec = tween(500))
+        showList = true
     }
 
     Column(
@@ -82,29 +93,30 @@ private fun LocationSearchScreenContent(
                 modifier = Modifier.fillMaxWidth()
             )
         }
-
-        LazyColumn(
-            state = listState,
-            modifier = Modifier
-                .fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            contentPadding = PaddingValues(vertical = 16.dp),
-        ) {
-            items(2) { section ->
-                when(section) {
-                    0 -> SearchSection(
-                        query = query,
-                        searchJob = searchJob,
-                        coroutineScope = coroutineScope,
-                        isLoading = isLoading,
-                        results = results,
-                    )
-                    1 -> ResultSection(
-                        results = results,
-                        onBack = onBack,
-                        settings = settings,
-                        fromHomeScreen = fromHomeScreen
-                    )
+        if(showList) {
+            LazyColumn(
+                state = listState,
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                contentPadding = PaddingValues(vertical = 16.dp),
+            ) {
+                items(2) { section ->
+                    when(section) {
+                        0 -> SearchSection(
+                            query = query,
+                            searchJob = searchJob,
+                            coroutineScope = coroutineScope,
+                            isLoading = isLoading,
+                            results = results,
+                        )
+                        1 -> ResultSection(
+                            results = results,
+                            onBack = onBack,
+                            settings = settings,
+                            fromHomeScreen = fromHomeScreen
+                        )
+                    }
                 }
             }
         }

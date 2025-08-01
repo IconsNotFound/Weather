@@ -165,7 +165,7 @@
     <string name="app_info">App Info</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="privacy_policy_ext">No personal data; uses Photon &amp; Open-Meteo</string>
-    <string name="licences_ext">Licensed under GNU GPLv3; uses MIT, Apache, Freepik</string>
+    <string name="licences_ext">Licensed under AGPL-3.0; uses MIT, Apache, Freepik</string>
     <string name="donate">Donate</string>
     <string name="donate_ext">Support me on Patreon</string>
     <string name="from">from</string>

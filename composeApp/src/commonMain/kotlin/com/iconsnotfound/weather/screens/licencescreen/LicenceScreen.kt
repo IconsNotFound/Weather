@@ -20,6 +20,8 @@
 
 package com.iconsnotfound.weather.screens.licencescreen
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -54,7 +56,6 @@ import com.iconsnotfound.weather.components.CustomDialog
 import com.iconsnotfound.weather.components.InfoItem4
 import com.iconsnotfound.weather.openUrl
 import com.iconsnotfound.weather.screens.licencescreen.sections.TopBar
-import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 import weather.composeapp.generated.resources.Res
 import weather.composeapp.generated.resources.close
@@ -75,6 +76,7 @@ class LicenceScreen(): Screen {
 
 @Composable
 private fun LicenceScreenContent(onBack: () -> Unit) {
+    val offsetX = remember { Animatable(-1000f) }
     val listState = rememberLazyListState()
     var isReady by remember { mutableStateOf(false) }
     var readFile by remember { mutableStateOf(false) }
@@ -110,7 +112,7 @@ private fun LicenceScreenContent(onBack: () -> Unit) {
     )
 
     LaunchedEffect(Unit) {
-        delay(300)
+        offsetX.animateTo(0f, animationSpec = tween(500))
         showList = true
     }
 

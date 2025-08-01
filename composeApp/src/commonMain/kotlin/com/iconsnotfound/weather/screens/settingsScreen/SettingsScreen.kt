@@ -20,6 +20,8 @@
 
 package com.iconsnotfound.weather.screens.settingsScreen
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -44,7 +46,6 @@ import com.iconsnotfound.weather.screens.settingsScreen.sections.DonateSection
 import com.iconsnotfound.weather.screens.settingsScreen.sections.PrivacyAndLicenceSection
 import com.iconsnotfound.weather.screens.settingsScreen.sections.ThemeAppInfoSection
 import com.iconsnotfound.weather.screens.settingsScreen.sections.TopBar
-import kotlinx.coroutines.delay
 
 class SettingsScreen() : Screen {
     @Composable
@@ -59,6 +60,7 @@ class SettingsScreen() : Screen {
 
 @Composable
 private fun SettingsScreenContent(onBack: () -> Unit){
+    val offsetX = remember { Animatable(-1000f) }
     var showSections by remember { mutableStateOf(false) }
 
     val listState = rememberLazyListState()
@@ -67,7 +69,7 @@ private fun SettingsScreenContent(onBack: () -> Unit){
     }
 
     LaunchedEffect(Unit) {
-        delay(300)
+        offsetX.animateTo(0f, animationSpec = tween(500))
         showSections = true
     }
 

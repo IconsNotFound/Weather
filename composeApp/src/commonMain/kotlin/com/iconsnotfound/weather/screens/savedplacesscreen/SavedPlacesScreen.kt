@@ -20,6 +20,8 @@
 
 package com.iconsnotfound.weather.screens.savedplacesscreen
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -80,6 +82,7 @@ fun SavedPlacesScreenContent(
     onLocationSearchClick: () -> Unit,
     onBack: () -> Unit
 ) {
+    val offsetX = remember { Animatable(-1000f) }
     val listState = rememberLazyListState()
     val settings = SettingsHolder.settings
     val msgSuccess = stringResource(Res.string.place_deleted)
@@ -94,7 +97,7 @@ fun SavedPlacesScreenContent(
     var showSections = remember { mutableStateOf(true) }
 
     LaunchedEffect(Unit) {
-        delay(200)
+        offsetX.animateTo(0f, animationSpec = tween(500))
         isLoading = true
         totalSavedLocations = AppDataStore.getTotalSavedPlaces(settings)
         if(totalSavedLocations == 0) {

@@ -20,6 +20,8 @@
 
 package com.iconsnotfound.weather.screens.homescreen
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -68,7 +70,6 @@ import com.iconsnotfound.weather.screens.homescreen.sections.WindSection
 import com.iconsnotfound.weather.screens.placesearchscreen.LocationSearchScreen
 import com.iconsnotfound.weather.screens.savedplacesscreen.SavedPlacesScreen
 import com.iconsnotfound.weather.screens.settingsScreen.SettingsScreen
-import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 import weather.composeapp.generated.resources.Res
 import weather.composeapp.generated.resources.add_place
@@ -97,6 +98,7 @@ private fun HomeScreenContent(
     onSavedPlacesClick: () -> Unit,
     onLocationSearchClick: (Boolean) -> Unit,
 ) {
+    val offsetX = remember { Animatable(-1000f) }
     val listState = rememberLazyListState()
     val settings = SettingsHolder.settings
     val msgNoDefPlace = stringResource(Res.string.no_default_place_set)
@@ -129,7 +131,7 @@ private fun HomeScreenContent(
 
     LaunchedEffect(Unit) {
         isLoading.value = true
-        delay(300)
+        offsetX.animateTo(0f, animationSpec = tween(500))
         totalSavedLocations = AppDataStore.getTotalSavedPlaces(settings)
         val defaultLocation = AppDataStore.getDefaultPlace(settings)
         if(defaultLocation == null) {
