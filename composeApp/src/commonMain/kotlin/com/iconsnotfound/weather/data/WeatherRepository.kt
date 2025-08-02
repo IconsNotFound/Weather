@@ -24,15 +24,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import com.iconsnotfound.weather.network.weather.WeatherApi
 import com.iconsnotfound.weather.lib.TimeUtils
+import com.iconsnotfound.weather.network.weather.WeatherApi
 import com.iconsnotfound.weather.showToast
 import com.russhwolf.settings.Settings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
@@ -90,6 +88,7 @@ class WeatherRepository(
                         }
                     }
                     dataUpdated = true
+                    if(manualRefresh) showToast(msgSuccess)
                 }
             } finally {
                 isLoading = false
