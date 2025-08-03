@@ -62,8 +62,7 @@ private fun sectionLeft(currentWeather: CurrentWeather?) {
         bodyLeftText = cloudCover,
         bodyRightText = if(cloudCover != hyphen) WeatherUtils.interpretCloudCover(cloudCoverVal) else cloudCover,
         cardStyle = CardStyle.Outlined,
-        cardContainerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.2f),
-        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.primaryContainer)
+        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant)
     )
 }
 
@@ -85,7 +84,7 @@ private fun sectionRight(currentWeather: CurrentWeather?) {
         bodyLeftText = visibility,
         bodyRightText = if(visibility != hyphen) WeatherUtils.getVisibilityDescription(visibilityVal) else visibility,
         cardStyle = CardStyle.Outlined,
-        cardContainerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.2f),
-        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.primaryContainer)
+        cardContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant)
     )
 }

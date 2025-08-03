@@ -69,7 +69,6 @@ fun HorizontalProgressBar(
     iconSize: Dp = 24.dp,
     iconTextSpacing: Dp = 4.dp,
     tipIconSize: Dp = 32.dp,
-    tipIconOffsetY: Dp = (-20).dp,
     animationDurationMs: Int = 1200,
     progressTipStyle: ImageStyle = ImageStyle.Filled,
     startLabel: String? = null,
@@ -87,7 +86,7 @@ fun HorizontalProgressBar(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(horizontalAlignment = Alignment.Start) {
                 startIcon?.let {
                     Image(
                         painter = it,
@@ -97,10 +96,20 @@ fun HorizontalProgressBar(
                     )
                 }
                 startLabel?.let {
-                    Text(it, style = MaterialTheme.typography.bodySmall)
+                    Text(
+                        it,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.outline
+                    )
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    startText?.let {
+                        Spacer(Modifier.height(iconTextSpacing))
+                        Text(it, style = MaterialTheme.typography.labelMedium)
+                    }
                 }
             }
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(horizontalAlignment = Alignment.End) {
                 endIcon?.let {
                     Image(
                         painter = it,
@@ -110,7 +119,17 @@ fun HorizontalProgressBar(
                     )
                 }
                 endLabel?.let {
-                    Text(it, style = MaterialTheme.typography.bodySmall)
+                    Text(
+                        it,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.outline
+                    )
+                }
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    endText?.let {
+                        Spacer(Modifier.height(iconTextSpacing))
+                        Text(it, style = MaterialTheme.typography.labelMedium)
+                    }
                 }
             }
         }
@@ -152,25 +171,6 @@ fun HorizontalProgressBar(
                     style = progressTipStyle,
                     size = 28.dp
                 )
-            }
-        }
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                startText?.let {
-                    Spacer(Modifier.height(iconTextSpacing))
-                    Text(it, style = MaterialTheme.typography.bodyMedium)
-                }
-            }
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                endText?.let {
-                    Spacer(Modifier.height(iconTextSpacing))
-                    Text(it, style = MaterialTheme.typography.bodyMedium)
-                }
             }
         }
     }

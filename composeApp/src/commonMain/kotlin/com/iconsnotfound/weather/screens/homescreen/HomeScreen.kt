@@ -182,8 +182,8 @@ private fun HomeScreenContent(
                 ) {
                     items(9) { section ->
                         when (section) {
-                            0 -> ForecastSection(currentWeather, dailyWeather)
-                            1 -> LocationLastUpdateSection(place, currentWeather)
+                            0 -> LocationLastUpdateSection(place, currentWeather)
+                            1 -> ForecastSection(currentWeather, dailyWeather)
                             2 -> DewAndHumiditySection(currentWeather)
                             3 -> WindSection(currentWeather)
                             4 -> PrecipitationSection(currentWeather)

@@ -52,7 +52,7 @@ fun ForecastSection(currentWeather: CurrentWeather?, dailyWeather: DailyWeather?
     TwoColumnEqualSizeSection(
         sectionLeft = { sectionLeft(currentWeather) },
         sectionRight = { sectionRight(currentWeather, dailyWeather) },
-        modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max).padding(top = 64.dp)
+        modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max).padding(vertical = 128.dp)
     )
 }
 
@@ -60,7 +60,7 @@ fun ForecastSection(currentWeather: CurrentWeather?, dailyWeather: DailyWeather?
 private fun sectionLeft(currentWeather: CurrentWeather?){
     val hyphen = stringResource(Res.string.hyphen)
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 2.dp),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.Top
     ) {
@@ -88,10 +88,8 @@ private fun sectionLeft(currentWeather: CurrentWeather?){
 
         Text(
             "${stringResource(Res.string.feels_like)} ${feelsLike}${stringResource(Res.string.degree)}",
-            style = MaterialTheme.typography.bodyLarge.copy(
-                fontWeight = FontWeight.Bold
-            ),
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.outline
         )
     }
 }
@@ -116,14 +114,14 @@ private fun sectionRight(currentWeather: CurrentWeather?, dailyWeather: DailyWea
             style = ImageStyle.Icon,
             size = 48.dp,
             autoIconSize = false,
-            contentColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(bottom = 8.dp)
         )
     }
     Text(
         text = weatherDescription,
-        style = MaterialTheme.typography.bodyLarge,
-        color = MaterialTheme.colorScheme.onSurfaceVariant
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.outline
     )
 
     var cloudCover = hyphen

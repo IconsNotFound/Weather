@@ -20,13 +20,11 @@
 
 package com.iconsnotfound.weather.screens.homescreen.sections
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -34,8 +32,8 @@ import com.iconsnotfound.weather.components.CardM3
 import com.iconsnotfound.weather.components.CardStyle
 import com.iconsnotfound.weather.components.HorizontalProgressBar
 import com.iconsnotfound.weather.components.ImageStyle
-import com.iconsnotfound.weather.network.weather.DailyWeather
 import com.iconsnotfound.weather.lib.TimeUtils
+import com.iconsnotfound.weather.network.weather.DailyWeather
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import weather.composeapp.generated.resources.Res
@@ -79,8 +77,7 @@ fun SunSection(dailyWeather: DailyWeather?) {
         CardM3(
             style = CardStyle.Outlined,
             modifier = Modifier.fillMaxSize().padding(horizontal = 4.dp),
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.primaryContainer),
-            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.2f),
+            border = null,
             shape = RoundedCornerShape(32.dp)
         ){
             HorizontalProgressBar(

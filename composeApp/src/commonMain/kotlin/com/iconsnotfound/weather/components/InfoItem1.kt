@@ -58,23 +58,14 @@ fun InfoItem1(
     cardBorder: BorderStroke? = if (cardStyle == CardStyle.Outlined)
         BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
     else null,
-    headerRowModifier: Modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
-    headerRowHorizontalArrangement:  Arrangement.Horizontal = Arrangement.SpaceBetween,
-    headerRowVerticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
     headerRowTitle: String? = null,
     headerRowIcon: DrawableResource? = null,
-    headerRowTitleTextStyle: TextStyle = MaterialTheme.typography.bodyMedium,
-    headerRowTitleColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+    headerRowTitleTextStyle: TextStyle = MaterialTheme.typography.labelSmall,
+    headerRowTitleColor: Color = MaterialTheme.colorScheme.outline,
     headerRowIconStyle: ImageStyle = ImageStyle.Icon,
     headerRowIconSize: Dp = 24.dp,
     headerRowIconAutoIconSize: Boolean = false,
     bodyRowModifier: Modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp).fillMaxHeight(),
-    bodyRowHorizontalArrangement: Arrangement.Horizontal = Arrangement.SpaceBetween,
-    bodyRowVerticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
-    bodyLeftColumnWeight: Float = 1f,
-    bodyLeftColumnHorizontalArrangement: Arrangement.Horizontal = Arrangement.Center,
-    bodyLeftColumnVerticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
-    bodyRightColumnWeight: Float = 1f,
     bodyRightColumnHorizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
     bodyRightColumnVerticalArrangement: Arrangement.Vertical = Arrangement.Center,
     bodyLeftTextUnit: String? = null,
@@ -82,13 +73,13 @@ fun InfoItem1(
     bodyLeftTextStyle: TextStyle = MaterialTheme.typography.displaySmall,
     bodyLeftTextColor: Color = MaterialTheme.colorScheme.onSurface,
     bodyLeftUnitStyle: TextStyle = MaterialTheme.typography.bodyMedium,
-    bodyLeftUnitColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+    bodyLeftUnitColor: Color = MaterialTheme.colorScheme.outline,
     bodyLeftUnitModifier: Modifier = Modifier,
 
-    bodyRightTextStyle: TextStyle = MaterialTheme.typography.bodyLarge,
-    bodyRightTextColor: Color = MaterialTheme.colorScheme.onSurface,
+    bodyRightTextStyle: TextStyle = MaterialTheme.typography.bodySmall,
+    bodyRightTextColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
     bodyLeftText: String,
-    bodyRightText: String,
+    bodyRightText: String? = null,
 
     ) {
     CardM3(
@@ -99,38 +90,31 @@ fun InfoItem1(
         border = cardBorder,
         shape = RoundedCornerShape(32.dp)
     ) {
-        Row(
-            modifier = headerRowModifier,
-            horizontalArrangement = headerRowHorizontalArrangement,
-            verticalAlignment = headerRowVerticalAlignment
-        ) {
-            headerRowTitle?.let {
-                ScrollableTextBox(
-                    text = it,
-                    textStyle = headerRowTitleTextStyle,
-                    color = headerRowTitleColor
-                )
-            }
-            headerRowIcon?.let {
-                ImageViewM3(
-                    painter = painterResource(it),
-                    style = headerRowIconStyle,
-                    size = headerRowIconSize,
-                    autoIconSize = headerRowIconAutoIconSize
-                )
-            }
+        headerRowIcon?.let {
+            ImageViewM3(
+                painter = painterResource(it),
+                style = headerRowIconStyle,
+                size = headerRowIconSize,
+                autoIconSize = headerRowIconAutoIconSize,
+                contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
+        headerRowTitle?.let {
+            ScrollableTextBox(
+                text = it,
+                textStyle = headerRowTitleTextStyle,
+                color = headerRowTitleColor
+            )
         }
 
-        Row(
+        Column (
             modifier = bodyRowModifier,
-            horizontalArrangement = bodyRowHorizontalArrangement,
-            verticalAlignment = bodyRowVerticalAlignment
+            horizontalAlignment =  bodyRightColumnHorizontalAlignment,
+            verticalArrangement = bodyRightColumnVerticalArrangement
         ) {
-            Row (
-                modifier = Modifier.weight(bodyLeftColumnWeight),
-                horizontalArrangement =  bodyLeftColumnHorizontalArrangement,
-                verticalAlignment = bodyLeftColumnVerticalAlignment
-            ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            )  {
                 val title = if(bodyLeftTextUnit != null && bodyLeftTextUnitWithVal) {
                     "$bodyLeftText$bodyLeftTextUnit"
                 } else bodyLeftText
@@ -149,16 +133,14 @@ fun InfoItem1(
                 }
             }
 
-            Column (
-                modifier = Modifier.weight(bodyRightColumnWeight),
-                horizontalAlignment =  bodyRightColumnHorizontalAlignment,
-                verticalArrangement = bodyRightColumnVerticalArrangement
-            ) {
-                Text(
-                    text = bodyRightText,
-                    style = bodyRightTextStyle,
-                    color = bodyRightTextColor
-                )
+            Column{
+                bodyRightText?.let {
+                    Text(
+                        text = it,
+                        style = bodyRightTextStyle,
+                        color = bodyRightTextColor
+                    )
+                }
             }
         }
     }

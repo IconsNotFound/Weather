@@ -27,7 +27,6 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -58,7 +57,6 @@ fun CircularProgressBar(
     textStyle: TextStyle = MaterialTheme.typography.bodyLarge,
     unit: String? = stringResource(Res.string.percent_symbol),
     unitStyle: TextStyle = MaterialTheme.typography.bodySmall,
-    unitBottomPadding: Dp = 2.dp,
     startAngle: Float = -90f,
     sweepAngle: Float = 360f,
 ) {
@@ -96,7 +94,7 @@ fun CircularProgressBar(
         }
 
         Row(
-            verticalAlignment = Alignment.Bottom
+            verticalAlignment = Alignment.CenterVertically
         ){
             label?.let {
                 Text(
@@ -109,8 +107,7 @@ fun CircularProgressBar(
                 Text(
                     text = unit,
                     style = unitStyle,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.padding(bottom = unitBottomPadding)
+                    color = MaterialTheme.colorScheme.outline,
                 )
             }
         }

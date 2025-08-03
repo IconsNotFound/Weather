@@ -26,11 +26,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.iconsnotfound.weather.components.CardStyle
 import com.iconsnotfound.weather.components.InfoItem1
-import com.iconsnotfound.weather.components.InfoItem2
 import com.iconsnotfound.weather.components.TwoColumnEqualSizeSection
-import com.iconsnotfound.weather.network.weather.CurrentWeather
 import com.iconsnotfound.weather.lib.WeatherUtils
 import com.iconsnotfound.weather.lib.formatPrecipitation
+import com.iconsnotfound.weather.network.weather.CurrentWeather
 import org.jetbrains.compose.resources.stringResource
 import weather.composeapp.generated.resources.Res
 import weather.composeapp.generated.resources.air_pressure
@@ -65,8 +64,7 @@ private fun sectionLeft(currentWeather: CurrentWeather?) {
         bodyLeftText = precipitation,
         bodyRightText = if(precipitation != hyphen) WeatherUtils.describePrecipitation(precipitation.toDouble()) else precipitation,
         cardStyle = CardStyle.Outlined,
-        cardContainerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.2f),
-        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.primaryContainer)
+        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant)
     )
 }
 
@@ -77,16 +75,15 @@ private fun sectionRight(currentWeather: CurrentWeather?) {
     currentWeather?.surface_pressure?.let {
         airPressure2 = round(it).toInt().toString()
     }
-
-    InfoItem2(
+    InfoItem1(
         headerRowTitle = stringResource(Res.string.air_pressure),
         headerRowIcon = Res.drawable.air_pressure_round2,
         bodyLeftTextUnit = stringResource(Res.string.hpa),
         bodyLeftTextUnitWithVal = false,
         bodyLeftText = airPressure2,
         cardStyle = CardStyle.Outlined,
-        cardContainerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.2f),
-        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.primaryContainer)
+        cardContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant)
     )
 }
 

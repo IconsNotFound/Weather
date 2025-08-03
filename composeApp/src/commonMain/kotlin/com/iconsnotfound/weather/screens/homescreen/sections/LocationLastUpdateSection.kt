@@ -32,19 +32,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.iconsnotfound.weather.components.ImageStyle
-import com.iconsnotfound.weather.components.ImageViewM3
 import com.iconsnotfound.weather.components.ScrollableTextBox
-import com.iconsnotfound.weather.network.weather.CurrentWeather
 import com.iconsnotfound.weather.lib.TimeUtils
-import org.jetbrains.compose.resources.painterResource
+import com.iconsnotfound.weather.network.weather.CurrentWeather
 import org.jetbrains.compose.resources.stringResource
 import weather.composeapp.generated.resources.Res
 import weather.composeapp.generated.resources._0
 import weather.composeapp.generated.resources.am
 import weather.composeapp.generated.resources.hyphen
 import weather.composeapp.generated.resources.last_updated
-import weather.composeapp.generated.resources.location_rounded
 import weather.composeapp.generated.resources.pm
 import weather.composeapp.generated.resources.yesterday
 
@@ -54,35 +50,25 @@ fun LocationLastUpdateSection(
     currentWeather: CurrentWeather?
 ) {
     Box (
-        modifier = Modifier.fillMaxWidth().padding(top = 48.dp, bottom = 16.dp),
-        contentAlignment = Alignment.Center
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp),
+        contentAlignment = Alignment.TopStart
     ) {
         Column (
-            modifier = Modifier.fillMaxWidth(0.75f)
+            modifier = Modifier.fillMaxWidth(0.75f),
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth().padding(top = 32.dp),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
+                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                horizontalArrangement = Arrangement.Start,
             ) {
-                ImageViewM3(
-                    painter = painterResource(Res.drawable.location_rounded),
-                    style = ImageStyle.Icon,
-                    size = 28.dp,
-                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                    autoIconSize = false,
-                    modifier = Modifier.padding(end = 8.dp)
-                )
                 ScrollableTextBox(
                     text = place,
-                    textStyle = MaterialTheme.typography.titleLarge
+                    textStyle = MaterialTheme.typography.titleSmall
                 )
             }
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
+                horizontalArrangement = Arrangement.Start,
             ) {
                 var lastUpdated = stringResource(Res.string.hyphen)
                 currentWeather?.time?.let {
@@ -95,8 +81,8 @@ fun LocationLastUpdateSection(
                     )
                     Text(
                         "${stringResource(Res.string.last_updated)} $lastUpdated",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.outline
                     )
                 }
             }

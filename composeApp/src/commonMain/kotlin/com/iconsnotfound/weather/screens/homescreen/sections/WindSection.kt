@@ -20,7 +20,6 @@
 
 package com.iconsnotfound.weather.screens.homescreen.sections
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -46,8 +45,8 @@ import com.iconsnotfound.weather.components.ImageStyle
 import com.iconsnotfound.weather.components.ImageViewM3
 import com.iconsnotfound.weather.components.ImageViewM3Animated
 import com.iconsnotfound.weather.components.ScrollableTextBox
-import com.iconsnotfound.weather.network.weather.CurrentWeather
 import com.iconsnotfound.weather.lib.WeatherUtils
+import com.iconsnotfound.weather.network.weather.CurrentWeather
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import weather.composeapp.generated.resources.Res
@@ -76,8 +75,7 @@ fun WindSection(currentWeather: CurrentWeather?) {
             CardM3(
                 style = CardStyle.Outlined,
                 modifier = Modifier.fillMaxSize().padding(horizontal = 4.dp),
-                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primaryContainer),
-                containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.2f),
+                border = null,
                 shape = RoundedCornerShape(32.dp)
             ) {
                 Row(
@@ -100,8 +98,8 @@ fun WindSection(currentWeather: CurrentWeather?) {
                                     painter = painterResource(Res.drawable.turbine_bottom3),
                                     style = ImageStyle.Icon,
                                     autoIconSize = false,
-                                    contentColor = MaterialTheme.colorScheme.primaryContainer,
-                                    size = 78.dp,
+                                    contentColor = MaterialTheme.colorScheme.outlineVariant,
+                                    size = 58.dp,
                                     modifier = Modifier.offset(y = (9).dp)
                                 )
                                 ImageViewM3Animated(
@@ -109,8 +107,8 @@ fun WindSection(currentWeather: CurrentWeather?) {
                                     style = ImageStyle.Icon,
                                     isRotating = true,
                                     rotationDurationMs = 10000,
-                                    contentColor = MaterialTheme.colorScheme.primaryContainer,
-                                    size = 78.dp,
+                                    contentColor = MaterialTheme.colorScheme.outlineVariant,
+                                    size = 58.dp,
                                     autoIconSize = false,
                                     initialRotationVal = 45f,
                                     targetRotationVal = 405f
@@ -122,8 +120,8 @@ fun WindSection(currentWeather: CurrentWeather?) {
                                     painter = painterResource(Res.drawable.turbine_bottom3),
                                     style = ImageStyle.Icon,
                                     autoIconSize = false,
-                                    contentColor = MaterialTheme.colorScheme.primary,
-                                    size = 96.dp,
+                                    contentColor = MaterialTheme.colorScheme.outline,
+                                    size = 78.dp,
                                     modifier = Modifier.offset(y = (0).dp)
                                 )
                                 ImageViewM3Animated(
@@ -131,13 +129,19 @@ fun WindSection(currentWeather: CurrentWeather?) {
                                     style = ImageStyle.Icon,
                                     isRotating = true,
                                     rotationDurationMs = 8000,
-                                    contentColor = MaterialTheme.colorScheme.primary,
-                                    size = 96.dp,
+                                    contentColor = MaterialTheme.colorScheme.outline,
+                                    size = 78.dp,
                                     autoIconSize = false,
                                     modifier = Modifier.offset(y = (-10).dp),
                                 )
                             }
                         }
+                        ScrollableTextBox(
+                            stringResource(Res.string.wind),
+                            textStyle = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.outline,
+                            modifier = Modifier.padding(top = 8.dp)
+                        )
                     }
 
                     Column(
@@ -158,19 +162,8 @@ fun WindSection(currentWeather: CurrentWeather?) {
                             windDirection = WeatherUtils.degreesToDirection(it.roundToInt())
                         }
 
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.End
-                        ){
-                            ScrollableTextBox(
-                                stringResource(Res.string.wind),
-                                textStyle = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-
                         Column(
-                            modifier = Modifier.height(IntrinsicSize.Max).fillMaxWidth().fillMaxHeight().padding(top = 16.dp),
+                            modifier = Modifier.height(IntrinsicSize.Max).fillMaxWidth().fillMaxHeight()
                         ) {
                             Row(
                                 modifier = Modifier.height(IntrinsicSize.Max).fillMaxWidth().fillMaxHeight(),
@@ -182,7 +175,7 @@ fun WindSection(currentWeather: CurrentWeather?) {
                                     horizontalAlignment = Alignment.Start,
                                     verticalArrangement = Arrangement.Center
                                 ) {
-                                    Text(stringResource(Res.string.speed_colon), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.outline)
+                                    Text(stringResource(Res.string.speed_colon), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.outline)
                                 }
 
                                 Column(
@@ -193,7 +186,7 @@ fun WindSection(currentWeather: CurrentWeather?) {
                                     Text("$windSpeed ${stringResource(Res.string.km_per_h)}", style = MaterialTheme.typography.bodyMedium)
                                 }
                             }
-                            HorizontalDivider()
+                            HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
                             Row(
                                 modifier = Modifier.height(IntrinsicSize.Max).fillMaxWidth().fillMaxHeight(),
                                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -204,7 +197,7 @@ fun WindSection(currentWeather: CurrentWeather?) {
                                     horizontalAlignment = Alignment.Start,
                                     verticalArrangement = Arrangement.Center
                                 ) {
-                                    Text(stringResource(Res.string.gust_colon), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.outline)
+                                    Text(stringResource(Res.string.gust_colon), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.outline)
                                 }
 
                                 Column(
@@ -215,7 +208,7 @@ fun WindSection(currentWeather: CurrentWeather?) {
                                     Text("$gustWindSpeed ${stringResource(Res.string.km_per_h)}", style = MaterialTheme.typography.bodyMedium)
                                 }
                             }
-                            HorizontalDivider()
+                            HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
                             Row(
                                 modifier = Modifier.height(IntrinsicSize.Max).fillMaxWidth().fillMaxHeight(),
                                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -226,7 +219,7 @@ fun WindSection(currentWeather: CurrentWeather?) {
                                     horizontalAlignment = Alignment.Start,
                                     verticalArrangement = Arrangement.Center
                                 ) {
-                                    Text(stringResource(Res.string.direction_colon), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.outline)
+                                    Text(stringResource(Res.string.direction_colon), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.outline)
                                 }
 
                                 Column(
@@ -237,7 +230,7 @@ fun WindSection(currentWeather: CurrentWeather?) {
                                     ScrollableTextBox(windDirection, textStyle = MaterialTheme.typography.bodyMedium)
                                 }
                             }
-                            HorizontalDivider()
+                            HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
                         }
                     }
                 }

@@ -62,18 +62,19 @@ fun PhotonAttribution() {
 @Composable
 fun OpenMeteoAttribution() {
     Column(
-        modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp).fillMaxWidth(),
+        modifier = Modifier.padding(horizontal = 8.dp, vertical = 16.dp).fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = parseBoldTags(stringResource(Res.string.weather_provider)),
             style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            color = MaterialTheme.colorScheme.outline
         )
         LinkText(
             string = stringResource(Res.string.weather_provider_terms),
             linkFontWeight = FontWeight.Bold,
-            linkColor = MaterialTheme.colorScheme.primary
+            linkColor = MaterialTheme.colorScheme.outline,
+            textColor = MaterialTheme.colorScheme.outline
         )
     }
 }

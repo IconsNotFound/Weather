@@ -23,7 +23,6 @@ package com.iconsnotfound.weather.screens.homescreen.sections
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -76,8 +75,8 @@ private fun sectionLeft(currentWeather: CurrentWeather?) {
         bodyLeftText = dewPoint2,
         bodyRightText = if(dewPoint2 != hyphen) WeatherUtils.dewPointDescription(dewPoint2.toDouble()) else dewPoint2,
         cardStyle = CardStyle.Outlined,
-        cardContainerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.2f),
-        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.primaryContainer)
+        cardContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant)
     )
 }
 
@@ -87,29 +86,22 @@ private fun sectionRight(currentWeather: CurrentWeather?) {
     CardM3(
         style = CardStyle.Outlined,
         modifier = Modifier.padding(horizontal = 4.dp).fillMaxSize(),
-        containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.2f),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.primaryContainer),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant),
         shape = RoundedCornerShape(32.dp)
     )
     {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            ScrollableTextBox(
-                stringResource(Res.string.humidity),
-                textStyle = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            Spacer(Modifier.weight(1f))
-            ImageViewM3(
-                painter = painterResource(Res.drawable.humidity_round),
-                style = ImageStyle.Icon,
-                size = 24.dp,
-                autoIconSize = false
-            )
-        }
+        ImageViewM3(
+            painter = painterResource(Res.drawable.humidity_round),
+            style = ImageStyle.Icon,
+            size = 24.dp,
+            autoIconSize = false,
+            contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        ScrollableTextBox(
+            stringResource(Res.string.humidity),
+            textStyle = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.outline
+        )
 
         var humidity = hyphen
         var humidityVal = 0.0
@@ -126,7 +118,6 @@ private fun sectionRight(currentWeather: CurrentWeather?) {
                 humidityVal.toFloat(),
                 textStyle = MaterialTheme.typography.displaySmall,
                 unitStyle = MaterialTheme.typography.bodyMedium,
-                unitBottomPadding = 4.dp,
                 sweepAngle = 300f,
                 startAngle = -240f,
             )
