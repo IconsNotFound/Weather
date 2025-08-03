@@ -20,8 +20,12 @@
 
 package com.iconsnotfound.weather.screens.placesearchscreen.sections
 
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.iconsnotfound.weather.components.CardStyle
 import com.iconsnotfound.weather.components.InfoItem3
 import com.iconsnotfound.weather.network.places.PlacesModels
@@ -50,7 +54,7 @@ fun ResultSection(
     val msgSuccess = stringResource(Res.string.place_added)
     val defaultPlaceUpdated = stringResource(Res.string.default_place_updated)
     val (savedPlacesLimitReached, maxLimit) = AppDataStore.hasSavedPlacesLimitReached(settings)
-
+    Spacer(modifier = Modifier.height(32.dp))
     results.value.forEach {
         val id = "${it.display_name}_${it.lat}_${it.lon}".hashCode().toString()
         val location = Places(
@@ -80,7 +84,7 @@ fun ResultSection(
                 else showToast(alreadyExists)
             },
             isDefault = AppDataStore.exists(id, settings),
-            isDefaultIcon = painterResource(Res.drawable.check_circle_round)
+            isDefaultIcon = painterResource(Res.drawable.check_circle_round),
         )
     }
 }

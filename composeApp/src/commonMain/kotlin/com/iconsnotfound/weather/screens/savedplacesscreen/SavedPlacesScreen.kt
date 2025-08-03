@@ -135,7 +135,7 @@ fun SavedPlacesScreenContent(
                 modifier = Modifier
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                contentPadding = PaddingValues(vertical = 16.dp),
+                contentPadding = PaddingValues(vertical = 16.dp, horizontal = 16.dp),
             ) {
                 item {
                     results.forEach { location ->

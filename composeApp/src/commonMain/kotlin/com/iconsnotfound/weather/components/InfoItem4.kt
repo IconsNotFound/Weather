@@ -20,6 +20,7 @@
 
 package com.iconsnotfound.weather.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -52,7 +53,8 @@ fun InfoItem4(
         modifier = Modifier.fillMaxWidth().padding(paddingValues),
         onClick = infoItemOnClick,
         contentPadding = PaddingValues(2.dp),
-        shape = RoundedCornerShape(32.dp)
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
     ) {
         Box(
             modifier = Modifier.padding(4.dp).fillMaxWidth()
@@ -75,8 +77,8 @@ fun InfoItem4(
                     subTitle?.let {
                         Text(
                             it,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSecondaryContainer
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.outline
                         )
                     }
                 }

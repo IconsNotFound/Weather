@@ -62,8 +62,8 @@ private fun sectionLeft(currentWeather: CurrentWeather?) {
         headerRowIcon = Res.drawable.uv_index_round,
         bodyLeftText = precipitation,
         bodyRightText = if(precipitation != hyphen) WeatherUtils.getUVRiskLevel(precipitationVal.toFloat()) else precipitation,
-        cardStyle = CardStyle.Outlined,
-        cardContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+        cardStyle = CardStyle.Elevated,
+        cardContainerColor = MaterialTheme.colorScheme.surfaceContainer.copy(alpha = 1.0f),
         cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant)
     )
 }
@@ -85,4 +85,3 @@ private fun sectionRight(currentWeather: CurrentWeather?) {
         cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant)
     )
 }
-

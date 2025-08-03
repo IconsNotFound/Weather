@@ -83,8 +83,8 @@ private fun sectionRight(currentWeather: CurrentWeather?) {
         bodyLeftTextUnitWithVal = false,
         bodyLeftText = visibility,
         bodyRightText = if(visibility != hyphen) WeatherUtils.getVisibilityDescription(visibilityVal) else visibility,
-        cardStyle = CardStyle.Outlined,
-        cardContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+        cardStyle = CardStyle.Elevated,
+        cardContainerColor = MaterialTheme.colorScheme.surfaceContainer.copy(alpha = 1.0f),
         cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant)
     )
 }

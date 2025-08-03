@@ -20,6 +20,7 @@
 
 package com.iconsnotfound.weather.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -58,7 +59,8 @@ fun InfoItem3(
         modifier = Modifier.fillMaxWidth().padding(paddingValues),
         onClick = infoItemOnClick,
         contentPadding = PaddingValues(2.dp),
-        shape = RoundedCornerShape(32.dp)
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
     ) {
         Box(
             modifier = Modifier.padding(4.dp).fillMaxWidth()
@@ -75,19 +77,19 @@ fun InfoItem3(
                 ) {
                     Text(
                         location.name,
-                        style = MaterialTheme.typography.titleLarge,
+                        style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                     val subtitle = "${location.osm_value}${if (location.city!="") commaSpace else ""}${location.city}${if (location.country!="") commaSpace else ""}${location.country}"
                     Text(
                         subtitle,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSecondaryContainer
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.outline
                     )
                 }
                 Row(
-                    modifier = Modifier.weight(.4f),
-                    horizontalArrangement = Arrangement.End,
+                    modifier = Modifier.weight(.2f),
+                    horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ){
                     if(isDefault) {

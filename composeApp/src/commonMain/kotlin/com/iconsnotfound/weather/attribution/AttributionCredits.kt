@@ -48,13 +48,15 @@ fun PhotonAttribution() {
         LinkText(
             string = stringResource(Res.string.search_provider),
             linkFontWeight = FontWeight.Bold,
-            linkColor = MaterialTheme.colorScheme.primary
+            linkColor = MaterialTheme.colorScheme.outline,
+            textColor = MaterialTheme.colorScheme.outline
         )
 
         LinkText(
             string = stringResource(Res.string.search_provider_ext),
             linkFontWeight = FontWeight.Bold,
-            linkColor = MaterialTheme.colorScheme.primary
+            linkColor = MaterialTheme.colorScheme.outline,
+            textColor = MaterialTheme.colorScheme.outline
         )
     }
 }

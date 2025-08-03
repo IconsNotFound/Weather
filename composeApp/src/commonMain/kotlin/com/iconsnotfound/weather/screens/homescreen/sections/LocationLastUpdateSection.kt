@@ -62,7 +62,7 @@ fun LocationLastUpdateSection(
             ) {
                 ScrollableTextBox(
                     text = place,
-                    textStyle = MaterialTheme.typography.titleSmall
+                    textStyle = MaterialTheme.typography.titleMedium
                 )
             }
 

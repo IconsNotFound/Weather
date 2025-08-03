@@ -135,7 +135,7 @@ private fun LicenceScreenContent(onBack: () -> Unit) {
                 modifier = Modifier.Companion
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.Companion.CenterHorizontally,
-                contentPadding = PaddingValues(vertical = 16.dp),
+                contentPadding = PaddingValues(vertical = 16.dp, horizontal = 16.dp),
             ) {
                 list.forEach { component ->
                     item {

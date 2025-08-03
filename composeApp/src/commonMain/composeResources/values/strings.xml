@@ -20,12 +20,12 @@
 
 <resources>
     <string name="app_name">Weather</string>
-    <string name="app_version">1.0.1</string>
+    <string name="app_version">1.0.2</string>
     <string name="brand_name">IconsNotFound</string>
     <string name="app_contact">https://github.com/IconsNotFound/Weather</string>
     <string name="url_privacy_policy">https://github.com/IconsNotFound/Weather/blob/main/PRIVACY.md</string>
     <string name="url_patreon">https://www.patreon.com/IconsNotFound</string>
-    <string name="url_github">https://github.com/IconsNotFound/</string>
+    <string name="url_github">https://github.com/IconsNotFound/Weather/</string>
     <string name="url_youtube">https://www.youtube.com/@iconsnotfound</string>
     <string name="url_openstreetmap">https://www.openstreetmap.org/copyright</string>
     <string name="url_photon_komoot">https://photon.komoot.io</string>

@@ -67,11 +67,11 @@ fun AppSettingsItem1(
     subtitleText: String? = null,
     titleTextStyle: TextStyle = MaterialTheme.typography.bodyLarge,
     titleTextColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
-    subtitleTextStyle: TextStyle = MaterialTheme.typography.bodySmall,
-    subtitleTextColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
+    subtitleTextStyle: TextStyle = MaterialTheme.typography.labelMedium,
+    subtitleTextColor: Color = MaterialTheme.colorScheme.outline,
     titleText: String,
     itemOnClick: () -> Unit
-    ) {
+) {
     CardM3(
         style = cardStyle,
         modifier = cardModifier,

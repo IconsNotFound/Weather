@@ -165,7 +165,7 @@ private fun sectionRight() {
         titleText = appInfo,
         subtitleText = appVersion,
         icon = Res.drawable.info_round,
-        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         itemOnClick = { showDialog = true }
     )
 
@@ -177,12 +177,13 @@ private fun sectionRight() {
 
             Text(
                 text = stringResource(Res.string.app_name),
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Text(
                 text = appVersion,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.outline
             )
 
             ImageViewM3(

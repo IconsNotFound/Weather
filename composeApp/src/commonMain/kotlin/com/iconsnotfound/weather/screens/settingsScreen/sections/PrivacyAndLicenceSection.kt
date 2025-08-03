@@ -66,7 +66,7 @@ private fun sectionLeft() {
         subtitleText = stringResource(Res.string.privacy_policy_ext),
         icon = Res.drawable.privacy_policy_round,
         endIcon = Res.drawable.open_in_browser_round,
-        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+        cardBorder = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         itemOnClick = { openUrl(privacyUrl) }
     )
 }

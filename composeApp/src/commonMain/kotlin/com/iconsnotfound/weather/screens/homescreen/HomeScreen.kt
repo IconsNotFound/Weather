@@ -24,6 +24,7 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -53,6 +54,7 @@ import com.iconsnotfound.weather.SettingsHolder
 import com.iconsnotfound.weather.attribution.OpenMeteoAttribution
 import com.iconsnotfound.weather.components.ButtonM3
 import com.iconsnotfound.weather.components.ButtonStyle
+import com.iconsnotfound.weather.components.ImageViewM3
 import com.iconsnotfound.weather.config.AppInfo
 import com.iconsnotfound.weather.data.AppDataStore
 import com.iconsnotfound.weather.data.WeatherRepository
@@ -70,11 +72,16 @@ import com.iconsnotfound.weather.screens.homescreen.sections.WindSection
 import com.iconsnotfound.weather.screens.placesearchscreen.LocationSearchScreen
 import com.iconsnotfound.weather.screens.savedplacesscreen.SavedPlacesScreen
 import com.iconsnotfound.weather.screens.settingsScreen.SettingsScreen
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import weather.composeapp.generated.resources.Res
 import weather.composeapp.generated.resources.add_place
+import weather.composeapp.generated.resources.app_name
+import weather.composeapp.generated.resources.brand_name
+import weather.composeapp.generated.resources.from
 import weather.composeapp.generated.resources.no_default_place_set
 import weather.composeapp.generated.resources.select_a_place
+import weather.composeapp.generated.resources.weather_app_logo
 import weather.composeapp.generated.resources.weather_updated
 
 class HomeScreen() : Screen {
@@ -196,6 +203,32 @@ private fun HomeScreenContent(
                 }
             }
             else {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(start = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    ImageViewM3(
+                        painter = painterResource(Res.drawable.weather_app_logo),
+                        contentColor = null,
+                        size = 48.dp,
+                        autoIconSize = false,
+                        modifier = Modifier.padding(end = 12.dp)
+                    )
+                    Column{
+                        Text(
+                            text = stringResource(Res.string.app_name),
+                            style = MaterialTheme.typography.headlineSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Text(
+                            text = "${stringResource(Res.string.from)} ${stringResource(Res.string.brand_name)}",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.outline
+                        )
+                    }
+
+
+                }
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
