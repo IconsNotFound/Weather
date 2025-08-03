@@ -137,8 +137,8 @@ android {
         applicationId = "com.iconsnotfound.weather"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0.1"
+        versionCode = 2
+        versionName = "1.0.2"
     }
     packaging {
         resources {
@@ -172,7 +172,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Deb, TargetFormat.Exe, TargetFormat.AppImage)
             packageName = "weather"
-            packageVersion = "1.0.1"
+            packageVersion = "1.0.2"
 
             description = "A minimal, privacy-focused weather app for casual users. No tracking — just the weather for your saved places."
             vendor = "IconsNotFound"
