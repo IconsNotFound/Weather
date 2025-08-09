@@ -40,7 +40,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -51,9 +51,9 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     jvm("desktop")
-    
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         outputModuleName.set("composeApp")
@@ -72,10 +72,10 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     sourceSets {
         val desktopMain by getting
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -137,8 +137,8 @@ android {
         applicationId = "com.iconsnotfound.weather"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 2
-        versionName = "1.0.2"
+        versionCode = libs.versions.app.versionCode.get().toInt()
+        versionName = libs.versions.app.versionName.get()
     }
     packaging {
         resources {
@@ -172,9 +172,9 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Deb, TargetFormat.Exe, TargetFormat.AppImage)
             packageName = "weather"
-            packageVersion = "1.0.2"
+            packageVersion = libs.versions.app.versionName.get()
 
-            description = "A minimal, privacy-focused weather app for casual users. No tracking — just the weather for your saved places."
+            description = "A minimal, privacy-focused weather app for casual users. No tracking - just the weather for your saved places."
             vendor = "IconsNotFound"
             copyright = "© 2025 IconsNotFound. AGPL-3.0 License"
             licenseFile.set(project.file("../LICENSE"))
@@ -183,7 +183,7 @@ compose.desktop {
                 iconFile.set(project.file("src/commonMain/composeResources/drawable/weather_app_logo.png"))
                 appCategory = "Utility"
                 debMaintainer = "IconsNotFound (https://github.com/iconsnotfound)"
-                appRelease = "1"
+                appRelease = libs.versions.app.versionCode.toString()
                 menuGroup = "Weather"
                 shortcut = true
             }

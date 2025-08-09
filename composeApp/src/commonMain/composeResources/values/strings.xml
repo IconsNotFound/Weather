@@ -20,7 +20,7 @@
 
 <resources>
     <string name="app_name">Weather</string>
-    <string name="app_version">1.0.2</string>
+    <string name="app_version">1.1.1</string>
     <string name="brand_name">IconsNotFound</string>
     <string name="app_contact">https://github.com/IconsNotFound/Weather</string>
     <string name="url_privacy_policy">https://github.com/IconsNotFound/Weather/blob/main/PRIVACY.md</string>

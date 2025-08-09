@@ -31,6 +31,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
@@ -80,9 +81,9 @@ private fun LicenceScreenContent(onBack: () -> Unit) {
     val listState = rememberLazyListState()
     var isReady by remember { mutableStateOf(false) }
     var readFile by remember { mutableStateOf(false) }
-    var strVal = remember { mutableStateOf("") }
-    var clickedItemTitle = remember { mutableStateOf("") }
-    var fileName = remember { mutableStateOf("") }
+    val strVal = remember { mutableStateOf("") }
+    val clickedItemTitle = remember { mutableStateOf("") }
+    val fileName = remember { mutableStateOf("") }
     var showList by remember { mutableStateOf(false) }
 
     BackHandler {
@@ -94,7 +95,7 @@ private fun LicenceScreenContent(onBack: () -> Unit) {
     val freepikUrl = stringResource(Res.string.url_freepik)
     val svgRepoUrl = stringResource(Res.string.url_svg_repo_cc0)
 
-    val list = listOf<Pair<Triple<String, String, String>, Int>>(
+    val list = listOf(
         Pair(Triple(LicenceFiles.WEATHER_TITLE, LicenceFiles.WEATHER_SUBTITLE, LicenceFiles.WEATHER), 0),
         Pair(Triple(LicenceFiles.PHOTON_TITLE, LicenceFiles.PHOTON_SUBTITLE, LicenceFiles.PHOTON), 1),
         Pair(Triple(LicenceFiles.OSM_TITLE, LicenceFiles.OSM_SUBTITLE, LicenceFiles.OSM), 2),
@@ -158,8 +159,12 @@ private fun LicenceScreenContent(onBack: () -> Unit) {
                                 }
                             },
                             showEndIcon = component.second == 2,
-                            cardStyle = if(component.second == 0) CardStyle.Outlined else CardStyle.Filled
+                            cardStyle = if(component.second == 0) CardStyle.Filled else CardStyle.Outlined,
+                            cardBorder = null,
+                            cardShape = RoundedCornerShape(if(component.second != 0) 0.dp else 16.dp),
+                            paddingValues = if(component.second == 0) PaddingValues(4.dp) else PaddingValues(horizontal = 4.dp, vertical = 0.dp)
                         )
+                        if(component.second != 0) HorizontalDivider(modifier = Modifier.padding(horizontal = 4.dp))
                     }
                 }
             }

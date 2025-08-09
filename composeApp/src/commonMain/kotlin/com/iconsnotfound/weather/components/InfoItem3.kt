@@ -52,6 +52,9 @@ fun InfoItem3(
     paddingValues: PaddingValues = PaddingValues(4.dp),
     cardStyle: CardStyle = CardStyle.Filled,
     isDefaultIcon: Painter = painterResource(Res.drawable.location_checked_round),
+    cardBorder: BorderStroke? = if (cardStyle == CardStyle.Outlined)
+        BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant)
+    else null,
 ) {
     val commaSpace = stringResource(Res.string.comma_space)
     CardM3(
@@ -60,7 +63,7 @@ fun InfoItem3(
         onClick = infoItemOnClick,
         contentPadding = PaddingValues(2.dp),
         shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+        border = cardBorder,
     ) {
         Box(
             modifier = Modifier.padding(4.dp).fillMaxWidth()
@@ -88,8 +91,8 @@ fun InfoItem3(
                     )
                 }
                 Row(
-                    modifier = Modifier.weight(.2f),
-                    horizontalArrangement = Arrangement.Center,
+                    modifier = Modifier.padding(end = 16.dp),
+                    horizontalArrangement = Arrangement.End,
                     verticalAlignment = Alignment.CenterVertically
                 ){
                     if(isDefault) {

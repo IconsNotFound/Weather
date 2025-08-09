@@ -34,6 +34,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
 import weather.composeapp.generated.resources.Res
@@ -46,15 +47,31 @@ fun InfoItem4(
     infoItemOnClick: (() -> Unit)? = null,
     paddingValues: PaddingValues = PaddingValues(4.dp),
     cardStyle: CardStyle = CardStyle.Filled,
-    showEndIcon: Boolean = false
+    showEndIcon: Boolean = false,
+    cardBorder: BorderStroke? = if (cardStyle == CardStyle.Outlined)
+        BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant)
+    else null,
+    cardContainerColor: Color = when (cardStyle) {
+        CardStyle.Filled -> MaterialTheme.colorScheme.tertiaryContainer
+        CardStyle.Elevated-> MaterialTheme.colorScheme.surface
+        CardStyle.Outlined -> Color.Transparent
+    },
+    cardContentColor: Color = when (cardStyle) {
+        CardStyle.Filled -> MaterialTheme.colorScheme.onTertiaryContainer
+        CardStyle.Elevated -> MaterialTheme.colorScheme.onSurface
+        CardStyle.Outlined -> MaterialTheme.colorScheme.onSurface
+    },
+    cardShape: RoundedCornerShape = RoundedCornerShape(16.dp),
 ) {
     CardM3(
         style = cardStyle,
         modifier = Modifier.fillMaxWidth().padding(paddingValues),
         onClick = infoItemOnClick,
         contentPadding = PaddingValues(2.dp),
-        shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+        shape = cardShape,
+        border = cardBorder,
+        containerColor = cardContainerColor,
+        contentColor = cardContentColor
     ) {
         Box(
             modifier = Modifier.padding(4.dp).fillMaxWidth()

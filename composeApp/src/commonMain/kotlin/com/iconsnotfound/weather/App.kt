@@ -26,6 +26,7 @@ import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
@@ -33,7 +34,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.SlideTransition
-import com.iconsnotfound.weather.SettingsHolder.settings
 import com.iconsnotfound.weather.components.ClickAwayBox
 import com.iconsnotfound.weather.data.AppDataStore
 import com.iconsnotfound.weather.screens.homescreen.HomeScreen
@@ -47,7 +47,11 @@ val LocalThemeManager = staticCompositionLocalOf<ThemeManager> {
 @Composable
 @Preview
 fun App() {
-    val themeManager = remember { ThemeManager(AppDataStore.getTheme(settings)) }
+    val themeManager = remember { ThemeManager() }
+    LaunchedEffect(Unit) {
+        themeManager.loadInitialTheme()
+    }
+
     CompositionLocalProvider(
         LocalThemeManager provides themeManager
     ) {

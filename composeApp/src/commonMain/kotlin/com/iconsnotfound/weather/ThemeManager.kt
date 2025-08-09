@@ -28,12 +28,16 @@ import com.iconsnotfound.weather.SettingsHolder.settings
 import com.iconsnotfound.weather.data.AppDataStore
 
 @Stable
-class ThemeManager(initialTheme: Int) {
-    var currentTheme by mutableStateOf(initialTheme)
+class ThemeManager() {
+    var currentTheme by mutableStateOf(AppDataStore.THEME.SYSTEM)
         private set
 
     fun setTheme(newTheme: Int) {
         currentTheme = newTheme
         AppDataStore.setTheme(settings, newTheme)
+    }
+
+    suspend fun loadInitialTheme() {
+        currentTheme = AppDataStore.getTheme(settings)
     }
 }
